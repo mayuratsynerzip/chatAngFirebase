@@ -114,8 +114,8 @@
   <div id="status">
   </div>
   <div class="input-group">
-    <input type="text" class="form-control" ng-model="currentMessage" placeholder="Enter message & hit enter"
-           aria-describedby="basic-addon2" ng-keydown="(( event.which || event.keyCode) == 13)? sendMessage() : false" disabled>
+    <input type="text" id="messageTxt" class="form-control" ng-model="currentMessage" placeholder="Enter message & hit enter"
+           aria-describedby="basic-addon2" disabled>
     <span class="input-group-addon btn btn-success" id="basic-addon2" ng-click="addMessage()" disabled>Send</span>
   </div>
 </div>

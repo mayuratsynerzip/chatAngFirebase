@@ -20,13 +20,22 @@ angular.module('firebaseApp')
       })
     });
 
+    $('#messageTxt').keypress(function(e){
+      if(e.keyCode == 13) {
+        $scope.addMessage();
+      }
+    });
+
     $scope.addMessage = function() {
       if($window.loginStatus == true) {
-        var newMessage = {
-          user: $window.username,
-          text: $scope.currentMessage
-        };
-        dbref.push(newMessage);
+        if($scope.currentMessage != "") {
+          var newMessage = {
+            user: $window.username,
+            text: $scope.currentMessage
+          };
+          dbref.push(newMessage);
+          $scope.currentMessage = "";
+        }
       } else {
        $('#errMessage').show(function(){
          setTimeout(function(){
