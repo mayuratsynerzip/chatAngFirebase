@@ -22,7 +22,7 @@ angular
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'chatAngFirebase/views/main.html',
         controller: 'MainCtrl'
       })
       .otherwise({
