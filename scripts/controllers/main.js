@@ -11,9 +11,17 @@ angular.module('firebaseApp')
   .controller('MainCtrl',['$scope', '$timeout', '$window', function ($scope, $timeout, $window) {
     var rootRef = new Firebase('https://shining-heat-9587.firebaseio.com/');
     var dbref = rootRef.child('chatmessages');
+    var firstScroll = false;
     dbref.on('value', function(snapshot){
       snapshot.forEach(function(){
         $timeout(function(){
+          if(!firstScroll) {
+            $(function () {
+              var wtf = $('.chat-box');
+              var height = wtf[0].scrollHeight;
+              wtf.scrollTop(height);
+            });
+          }
           var snapshotVal = snapshot.val();
           $scope.messages = snapshotVal;
         })
